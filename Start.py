@@ -1,0 +1,58 @@
+from sympy import *
+from sympy.plotting import plot
+init_printing()
+
+from Cherno import z, z1, m, m1, l, l1
+from Funkcion import increasing_decreasing_function as i_d_f, extremum_of_the_function as ex_funk
+
+print('Функция №1 z = -18 * x**3 + 5 * x**2 + 10 * x - 30')
+print('Функция №2 m = 2 * x ** 3 + 2 * x ** 2 - 18 * x - 18')
+print('Функция №3 l = (x ** 2 + 3) / (3 * (x + 1))')
+print('Введите значение, какую функцию хотите исследовать (1, 2 или 3')
+
+a = int(input())
+x = Symbol('x')
+if a == 1:
+    print('# 1. Построить граффик')
+    plot(z)
+    print(z)
+    print('# 2.отобразили корни')
+    print(z1)
+    print('# 3.Определить промежутки, на котором z < 0')
+    print(solveset(z<0))
+    print('# 4.Определить промежутки, на котором z > 0')
+    print(solveset(z>0))
+    print('# 5.Возрастание 6.Убывание')
+    i_d_f(z, x, -oo, oo)
+    print('# 7.вершины (экстремумы ф-ии)')
+    ex_funk(z, x)
+elif a == 2:
+    plot(m)
+    print(m)
+    print('# 2.отобразили корни')
+    print(m1)
+    print('# 3.Определить промежутки, на котором z < 0')
+    print(solveset(m<0))
+    print('# 4.Определить промежутки, на котором z > 0')
+    print(solveset(m>0)) 
+    print('# 5.Возрастание 6.Убывание')
+    i_d_f(m, x, -oo, oo)
+    print('# 7.вершины (экстремумы ф-ии)')
+    ex_funk(m, x)
+else:
+    print('# 2.отобразили корни')
+    print(l1)
+    print('# 3.Определить промежутки, на котором z < 0')
+    print(solveset(l<0))
+    print('# 4.Определить промежутки, на котором z > 0')
+    print(solveset(l>0))
+    print('# 5.Возрастание 6.Убывание')
+    i_d_f(l, x, -oo, -1,1)
+    i_d_f(l, x, -0,9, oo)
+    print('# 7.вершины (экстремумы ф-ии)')
+    ex_funk(l, x)
+    print('# 1. Построить граффик')
+    fun1 = plot(l, (x, -50, -1.1), show=False)
+    fun2 = plot(l, (x, -0.9, 50), show=False)
+    fun1.append(fun2[0])
+    print(fun1.show())
